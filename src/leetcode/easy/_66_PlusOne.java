@@ -2,7 +2,6 @@ package leetcode.easy;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class _66_PlusOne {
 
