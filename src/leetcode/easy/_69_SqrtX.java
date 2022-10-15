@@ -6,25 +6,28 @@ public class _69_SqrtX {
     }
 
     private static int mySqrt() {
-        int x = 8;
-        int[] arr = new int[x+1];
-        int n = 1;
-        int val = 3;
-        int count = val; // 3 5 7 9 ..
-        for(int i=1; i<=x; i++) {
-            if (count == 0  && i != 1) {
-                System.out.println("i = " + i);
-                n += 1;
-                val += 2;
-                count = val;
+//        int x = 2147395599;
+        int x = 2147483647;
+//        int x = 1;
+
+        long start = 0;
+        long end = x;
+        while (start < end) {
+            long mid = end == 1 ? 1 : (start + end) / 2;
+            long midPow = mid * mid;
+            if (midPow > x) {
+                end = mid;
+                if ((mid-1) * (mid-1) < x) return (int)mid - 1;
             }
-            arr[i] = n;
-            count--;
+            else if (midPow < x) {
+                start = mid;
+                if ((mid+1) * (mid+1) > x) return (int)mid;
+            }
+            else if (midPow == x) {
+                return (int)mid;
+            }
         }
-        for (int nn : arr) {
-            System.out.print(nn+" ");
-        }
-        return arr[x];
+        return x;
     }
 
 }
