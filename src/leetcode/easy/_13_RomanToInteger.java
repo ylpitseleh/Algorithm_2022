@@ -28,10 +28,7 @@ public class _13_RomanToInteger {
         hm.put("CM", 900);
 
         int idx = 0;
-        while (true) {
-            if (idx == s.length()) {
-                break;
-            }
+        while (idx < s.length()) {
             if (idx + 2 <= s.length()) {
                 String twoLen = s.substring(idx, idx + 2); // IV, IX 이런 경우
                 if (hm.containsKey(twoLen)) {
