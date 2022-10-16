@@ -11,14 +11,17 @@ public class _1_TwoSum {
     }
 
     private static int[] solve() {
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
+//        int[] nums = {2, 7, 11, 15};
+//        int target = 9;
+//        int[] nums = {3, 2, 4};
+//        int target = 6;
+        int[] nums = {3, 3};
+        int target = 6;
 
-        HashMap<Integer, Integer> hm = new HashMap<>(); // val, idx
-        for (int i=0; i<nums.length; i++) {
-            int n = target - nums[i];
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i=0; i<nums.length; i++) {
             if (hm.containsKey(target - nums[i])) {
-                return new int[]{i, hm.get(n)};
+                return new int[]{hm.get(target - nums[i]), i};
             }
             hm.put(nums[i], i);
         }
