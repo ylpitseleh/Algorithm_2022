@@ -1,7 +1,5 @@
 package leetcode.easy;
 
-import java.util.HashMap;
-
 public class revision {
     public static void main(String[] args) {
         String[] strs = {"flower","flow","flight"};
