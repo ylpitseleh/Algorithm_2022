@@ -2,32 +2,25 @@ package leetcode.easy;
 
 public class _14_LongestCommonPrefix_AGAIN {
     public static void main(String[] args) {
-        System.out.println("solve() = " + solve());
-    }
-
-    private static String solve() {
         String[] strs = {"flower","flow","flight"};
 //        String[] strs = {"dog","racecar","car"};
 //        String[] strs = {"a"};
 //        String[] strs = {"reflower","flow","flight"};
 //        String[] strs = {"ab","a"};
 //        String[] strs = {"aa", "aa"};
-//        String answer = "";
-//        boolean breakFlag = false;
-//        for (int i=0; i<strs[0].length(); i++) {
-//            for (int j=1; j<strs.length; j++) {
-//                if (i >= strs[j].length() || i >= strs[j-1].length() || strs[j].charAt(i) != strs[j-1].charAt(i)) {
-//                    breakFlag = true;
-//                    break;
-//                }
-//            }
-//            if (breakFlag) {
-//                break;
-//            }
-//            answer += Character.toString(strs[0].charAt(i));
-//        }
+        System.out.println("longestCommonPrefix() = " + longestCommonPrefix(strs));
+    }
 
+    private static String longestCommonPrefix(String[] strs) {
         String answer = "";
+        for (int i=0; i<strs[0].length(); i++) {
+            for (int j=1; j<strs.length; j++) {
+                if (strs[j-1].length() <= i || strs[j].length() <= i || strs[j].charAt(i) != strs[j-1].charAt(i)) {
+                    return answer;
+                }
+            }
+            answer += strs[0].substring(i, i+1);
+        }
         return answer;
     }
 
