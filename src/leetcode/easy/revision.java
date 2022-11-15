@@ -1,30 +1,20 @@
 package leetcode.easy;
 
-import java.util.Stack;
-
 public class revision {
     public static void main(String[] args) {
-//        String s = "()";
-//        String s = "()[]{}";
-//        String s = "(]";
-//        String s = "({[)";
-//        String s = "]";
-        String s = "(])";
-        System.out.println("isValid() = " + isValid(s));
+        int[] nums = {1,1,2};
+//        int[] nums = {0,0,1,1,1,2,2,3,3,4};
+        System.out.println("removeDuplicates() = " + removeDuplicates(nums));
+        
     }
 
-    private static boolean isValid(String s) {
-        Stack<Character> st = new Stack<>();
-        for (int i=0; i<s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '(' || c == '{' || c == '[') {
-                st.add(c);
-                continue;
+    private static int removeDuplicates(int[] nums) {
+        int idx = 1;
+        for (int i=1; i<nums.length; i++) {
+            if (nums[i] > nums[idx-1]) {
+                nums[idx++] = nums[i];
             }
-            else if (st.isEmpty()) return false;
-            if ((st.peek() == '(' && c == ')') || (st.peek() == '[' && c == ']') || (st.peek() == '{' && c == '}')) st.pop();
-            else return false;
         }
-        return st.isEmpty()? true: false;
+        return idx;
     }
 }
